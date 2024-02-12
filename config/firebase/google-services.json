@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "389979931733",
+    "firebase_url": "https://login-39561-default-rtdb.firebaseio.com",
+    "project_id": "login-39561",
+    "storage_bucket": "login-39561.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389979931733:android:ec07e67afc97af429fc0dc",
+        "android_client_info": {
+          "package_name": "PharmacieGarde.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389979931733-okvfhrunvr8kj4hluphabfut5kpm003j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrNNrvly3Nmb0bYWJRBXVNrUNdNv60G8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389979931733-dsom5uas94ea8b0ir5r16ns18f6941b3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
