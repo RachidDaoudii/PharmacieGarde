@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   Pressable,
+  ToastAndroid,
 } from "react-native";
 import COLORS from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
@@ -14,10 +15,16 @@ import { useState } from "react";
 import Checkbox from "expo-checkbox";
 import Button from "@/components/button";
 import { router } from "expo-router";
+import serviceSignUp from "./service/signUp";
 
 const SignUp = () => {
   const [isPasswordShow, setIsPasswordShow] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
+
+  const { onChange, onSubmit } = serviceSignUp();
+
+
+
   return (
     <LinearGradient
       colors={[COLORS.secondary, COLORS.primary]}
@@ -72,9 +79,10 @@ const SignUp = () => {
                 style={{
                   width: "100%",
                   backgroundColor: COLORS.white,
-                  color: COLORS.gray,
+                  color: COLORS.black,
                 }}
                 placeholder="Enter your full name"
+                onChangeText={(text) => onChange("fullName", text)}
               />
             </View>
           </View>
@@ -106,8 +114,9 @@ const SignUp = () => {
                 style={{
                   width: "100%",
                   backgroundColor: COLORS.white,
-                  color: COLORS.gray,
+                  color: COLORS.black,
                 }}
+                onChangeText={(text) => onChange("email", text)}
                 placeholder="Enter your email"
                 keyboardType="email-address"
               />
@@ -141,8 +150,10 @@ const SignUp = () => {
                 style={{
                   width: "100%",
                   backgroundColor: COLORS.white,
-                  color: COLORS.gray,
+                  color: COLORS.black,
                 }}
+                onChangeText={(text) => onChange("mobile", text)}
+                keyboardType="phone-pad"
                 placeholder="Enter your mobile number"
               />
             </View>
@@ -175,8 +186,9 @@ const SignUp = () => {
                 style={{
                   width: "100%",
                   backgroundColor: COLORS.white,
-                  color: COLORS.gray,
+                  color: COLORS.black,
                 }}
+                onChangeText={(text) => onChange("password", text)}
                 placeholder="Enter your password"
                 secureTextEntry={isPasswordShow}
               />
@@ -218,7 +230,7 @@ const SignUp = () => {
               borderWidth: 1,
               width: "100%",
             }}
-            onPress={() => router.push("/")}
+            onPress={() => onSubmit()}
           />
 
           <View

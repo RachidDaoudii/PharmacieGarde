@@ -14,8 +14,10 @@ import { useState } from "react";
 import Button from "@/components/button";
 import { router, Link } from "expo-router";
 import Checkbox from "expo-checkbox";
+import serviceSignIn from "./service/signIn";
 
 const SignIn = () => {
+  const { onChange, onSubmit } = serviceSignIn();
   const [isPasswordShow, setIsPasswordShow] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -76,6 +78,7 @@ const SignIn = () => {
                   backgroundColor: COLORS.white,
                   color: COLORS.gray,
                 }}
+                onChangeText={(text) => onChange("email", text)}
                 placeholder="Enter your email"
                 keyboardType="email-address"
               />
@@ -111,6 +114,7 @@ const SignIn = () => {
                   backgroundColor: COLORS.white,
                   color: COLORS.gray,
                 }}
+                onChangeText={(text) => onChange("password", text)}
                 placeholder="Enter your password"
                 secureTextEntry={isPasswordShow}
               />
@@ -170,7 +174,7 @@ const SignIn = () => {
               borderColor: COLORS.white,
               borderWidth: 1,
             }}
-            onPress={() => router.push("/h")}
+            onPress={() => onSubmit()}
           />
 
           <View

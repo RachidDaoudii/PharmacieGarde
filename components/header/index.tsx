@@ -1,13 +1,8 @@
 import COLORS from "@/constants/Colors";
+import { Link } from "expo-router";
 import React from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import { View, Image, TextInput, StyleSheet, Dimensions } from "react-native";
+
 export default function header() {
   return (
     <View
@@ -26,24 +21,26 @@ export default function header() {
       <View>
         <TextInput style={styles.searchBar} placeholder="Search here..." />
       </View>
-      <Image
-        style={{ width: 50, height: 50, borderRadius: 100 }}
-        source={{
-          uri: "https://reactnative.dev/img/tiny_logo.png",
-        }}
-      />
+      <Link href={"/"} style={{ width: 50, height: 50, borderRadius: 100 }}>
+        <Image
+          style={{ width: 50, height: 50, borderRadius: 100 }}
+          source={{
+            uri: "https://reactnative.dev/img/tiny_logo.png",
+          }}
+        />
+      </Link>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   searchBar: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: COLORS.white,
     padding: 4,
     borderRadius: 50,
     paddingLeft: 10,
     width: Dimensions.get("screen").width * 0.7,
-    color: COLORS.white,
+    color: COLORS.dark,
   },
 });
