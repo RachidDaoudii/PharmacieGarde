@@ -77,6 +77,7 @@ const VerifyEmail = () => {
               <OtpInput
                 numberOfDigits={5}
                 onTextChange={(code) => sendCode(code)}
+                focusColor={COLORS.dark}
               />
             </View>
 
