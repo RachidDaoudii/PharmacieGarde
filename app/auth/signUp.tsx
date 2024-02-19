@@ -23,8 +23,6 @@ const SignUp = () => {
 
   const { onChange, onSubmit } = serviceSignUp();
 
-
-
   return (
     <LinearGradient
       colors={[COLORS.secondary, COLORS.primary]}
@@ -119,42 +117,6 @@ const SignUp = () => {
                 onChangeText={(text) => onChange("email", text)}
                 placeholder="Enter your email"
                 keyboardType="email-address"
-              />
-            </View>
-          </View>
-          <View style={{ marginBottom: 12 }}>
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: "500",
-                marginVertical: 8,
-                color: COLORS.white,
-              }}
-            >
-              Mobile Number
-            </Text>
-            <View
-              style={{
-                width: "100%",
-                height: 48,
-                borderColor: COLORS.white,
-                borderWidth: 1,
-                borderRadius: 8,
-                alignItems: "center",
-                justifyContent: "center",
-                paddingLeft: 22,
-                backgroundColor: COLORS.white,
-              }}
-            >
-              <TextInput
-                style={{
-                  width: "100%",
-                  backgroundColor: COLORS.white,
-                  color: COLORS.black,
-                }}
-                onChangeText={(text) => onChange("mobile", text)}
-                keyboardType="phone-pad"
-                placeholder="Enter your mobile number"
               />
             </View>
           </View>

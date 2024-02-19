@@ -1,7 +1,17 @@
+import logout from "@/app/auth/service/logout";
 import COLORS from "@/constants/Colors";
 import { Link } from "expo-router";
 import React from "react";
-import { View, Image, TextInput, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Image,
+  TextInput,
+  StyleSheet,
+  Dimensions,
+  Pressable,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 
 export default function header() {
   return (
@@ -21,14 +31,15 @@ export default function header() {
       <View>
         <TextInput style={styles.searchBar} placeholder="Search here..." />
       </View>
-      <Link href={"/"} style={{ width: 50, height: 50, borderRadius: 100 }}>
+      {/* <Link href={"/"} style={{ width: 50, height: 50, borderRadius: 100 }}>
         <Image
-          style={{ width: 50, height: 50, borderRadius: 100 }}
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
+          style={{ width: 20, height: 20, borderRadius: 100 }}
+          source={require("@/assets/images/logo.jpg")}
         />
-      </Link>
+      </Link> */}
+      <Pressable onPress={() => logout()}>
+        <Text>logout</Text>
+      </Pressable>
     </View>
   );
 }

@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { stateSignIn } from "../entityUser";
 import { ToastAndroid } from "react-native";
+import { APP_AUTH } from "@/config/configFireBase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { isAuth } from "@/app/hook/isAuth";
+
 const serviceSignUp = () => {
+  const auth = APP_AUTH;
+
   const [user, setUser] = useState({ ...stateSignIn });
 
   function showToast() {
@@ -11,9 +17,14 @@ const serviceSignUp = () => {
     setUser({ ...user, [name]: target });
   };
 
-  const onSubmit = () => {
-    console.log(user);
-    showToast();
+  isAuth();
+
+  const onSubmit = async () => {
+    const test = await signInWithEmailAndPassword(
+      auth,
+      user.email,
+      user.password
+    );
   };
 
   return { onChange, onSubmit };

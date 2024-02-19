@@ -3,8 +3,11 @@ import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "@/constants/Colors";
 import Button from "@/components/button";
 import { Link, router } from "expo-router";
+import { isAuth } from "@/app/hook/isAuth";
 
 export default function Page() {
+  isAuth();
+
   return (
     <LinearGradient
       colors={[COLORS.secondary, COLORS.primary]}

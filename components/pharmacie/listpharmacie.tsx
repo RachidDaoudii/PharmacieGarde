@@ -1,40 +1,37 @@
-import { FlatList, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  FlatList,
+  Text,
+  View,
+  Modal,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import PharmacieItem from "./pharmacieItem";
 import COLORS from "@/constants/Colors";
+import fetchData from "@/api/axois";
+import { useState } from "react";
+import { useEffect } from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function Listpharmacie() {
-  const pharmacies = [
-    {
-      name: "pharmacie 1",
-      address: "address 1",
-      phone: "phone 1",
-      image: require("@/assets/images/image1.jpg"),
-    },
-    {
-      name: "pharmacie 2",
-      address: "address 2",
-      phone: "phone 2",
-      image: require("@/assets/images/image1.jpg"),
-    },
-    {
-      name: "pharmacie 3",
-      address: "address 3",
-      phone: "phone 3",
-      image: require("@/assets/images/image1.jpg"),
-    },
-    {
-      name: "pharmacie 4",
-      address: "address 4",
-      phone: "phone 4",
-      image: require("@/assets/images/image1.jpg"),
-    },
-    {
-      name: "pharmacie 5",
-      address: "address 5",
-      phone: "phone 5",
-      image: require("@/assets/images/image1.jpg"),
-    },
-  ];
+  const [pharmacies, setPharmacies] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedPharmacie, setSelectedPharmacie] = useState({
+    nom: "",
+    telephone: "",
+    type: "",
+    date: "",
+    gmaps: "",
+  });
+
+  useEffect(() => {
+    const fetchPharmacies = async () => {
+      const data = await fetchData();
+      setPharmacies(data);
+    };
+    fetchPharmacies();
+  }, []);
+
   return (
     <View style={{ marginTop: 15 }}>
       <Text
@@ -52,7 +49,12 @@ export default function Listpharmacie() {
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => console.log(item)}>
+          <TouchableOpacity
+            onPress={() => {
+              setSelectedPharmacie(item);
+              setModalVisible(true);
+            }}
+          >
             <PharmacieItem pharmacie={item} />
           </TouchableOpacity>
         )}

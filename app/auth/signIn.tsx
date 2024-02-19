@@ -76,7 +76,7 @@ const SignIn = () => {
                 style={{
                   width: "100%",
                   backgroundColor: COLORS.white,
-                  color: COLORS.gray,
+                  color: COLORS.dark,
                 }}
                 onChangeText={(text) => onChange("email", text)}
                 placeholder="Enter your email"
@@ -112,7 +112,7 @@ const SignIn = () => {
                 style={{
                   width: "100%",
                   backgroundColor: COLORS.white,
-                  color: COLORS.gray,
+                  color: COLORS.dark,
                 }}
                 onChangeText={(text) => onChange("password", text)}
                 placeholder="Enter your password"

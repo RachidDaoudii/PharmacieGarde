@@ -6,6 +6,7 @@ const COLORS = {
   gray: "#CCCCCC",
   secondary: "#39B68D",
   primary: "#007260",
+  transparent: "rgba(0,0,0,0.5)",
 };
 
 export default COLORS;

@@ -17,14 +17,14 @@ export default function PharmacieItem({ pharmacie }: any) {
       }}
     >
       <Image
-        source={pharmacie.image}
-        style={{ width: 50, height: 50, borderRadius: 10 }}
+        source={require("@/assets/images/pharmacie.jpg")}
+        style={{ width: 100, height: 100, borderRadius: 10 }}
       />
-      <Text style={{ fontSize: 13, color: COLORS.white ,marginTop:3 }}>
-        {pharmacie.name}
-      </Text>
-      {/* <Text>{pharmacie.address}</Text>
-      <Text>{pharmacie.phone}</Text> */}
+      {/* <Text
+        style={{ fontSize: 13, color: COLORS.white, marginTop: 3, flex: 1 }}
+      >
+        {pharmacie.nom}
+      </Text> */}
     </View>
   );
 }

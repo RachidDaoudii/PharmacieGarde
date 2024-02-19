@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import FirstMap from "@/components/maps/firstMap";
 import Listpharmacie from "@/components/pharmacie/listpharmacie";
 import Pharmacies from "@/components/pharmacie/pharmacies";
 import COLORS from "@/constants/Colors";
@@ -6,9 +7,10 @@ import { Link } from "expo-router";
 import React from "react";
 import { Dimensions, Text, View, Image, ScrollView } from "react-native";
 import MapView from "react-native-maps";
+
 export default function home() {
   return (
-    <ScrollView>
+    <View>
       <Header />
       <View
         style={{
@@ -24,27 +26,14 @@ export default function home() {
             marginBottom: 10,
             fontWeight: "500",
             color: COLORS.white,
-            // fontFamily: "Inter-Black",
           }}
         >
           Top Near By Places
         </Text>
-        <View
-          style={{
-            borderRadius: 50,
-            // overflow: "hidden"
-          }}
-        >
-          <MapView
-            style={{
-              width: Dimensions.get("screen").width * 0.97,
-              height: Dimensions.get("screen").height * 0.23,
-            }}
-          />
-        </View>
+        <FirstMap />
       </View>
       <Listpharmacie />
       <Pharmacies />
-    </ScrollView>
+    </View>
   );
 }

@@ -32,7 +32,7 @@ export default function Page() {
           headerShown: false,
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="search"
         options={{
           headerTitle: "search",
@@ -48,7 +48,7 @@ export default function Page() {
           ),
           headerShown: false,
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="two"
         options={{
