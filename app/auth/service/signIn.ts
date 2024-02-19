@@ -10,9 +10,6 @@ const serviceSignUp = () => {
 
   const [user, setUser] = useState({ ...stateSignIn });
 
-  function showToast() {
-    ToastAndroid.show("Request sent successfully!", ToastAndroid.TOP);
-  }
   const onChange = (name: string, target: string) => {
     setUser({ ...user, [name]: target });
   };
@@ -20,7 +17,14 @@ const serviceSignUp = () => {
   isAuth();
 
   const onSubmit = async () => {
-    const test = await signInWithEmailAndPassword(
+    if (user.email == "" && user.password == "") {
+      return ToastAndroid.show(
+        "Please enter your email and password",
+        ToastAndroid.TOP
+      );
+    }
+
+    const userlogin = await signInWithEmailAndPassword(
       auth,
       user.email,
       user.password

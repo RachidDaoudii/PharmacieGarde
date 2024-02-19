@@ -138,8 +138,8 @@ export default function Page() {
                   Login
                 </Text>
               </Pressable>
-              <Link href={"/(tabs)/one"}>one</Link>
-              <Link href={"/(tabs)/two"}>two</Link>
+              {/* <Link href={"/(tabs)/one"}>one</Link>
+              <Link href={"/(tabs)/two"}>two</Link> */}
             </View>
           </View>
         </View>
